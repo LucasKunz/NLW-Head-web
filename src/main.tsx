@@ -4,6 +4,7 @@ import { App } from "./App";
 import { AuthProvider } from "./contexts/auth";
 
 import "./styles/global.css";
+import "./styles/_variables.scss";
 
 ReactDOM.render(
   <React.StrictMode>

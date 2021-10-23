@@ -36,7 +36,7 @@ export function AuthProvider(props: AuthProvider) {
   const signInUrl = `https://github.com/login/oauth/authorize?scope=user&client_id=b0f0f3ba75852c83a1c3`;
 
   async function signIn(code: string) {
-    const response = await api.post<AuthResponse>("authenticate", {
+    const response = await api.post<AuthResponse>("/authenticate", {
       code,
     });
 
@@ -60,6 +60,7 @@ export function AuthProvider(props: AuthProvider) {
 
     if (hasGithubCode) {
       const [urlWithoutCode, githubCode] = url.split("?code=");
+      console.log('GithubCode', githubCode)
 
       window.history.pushState({}, "", urlWithoutCode);
       signIn(githubCode);
